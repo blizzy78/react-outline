@@ -3,6 +3,8 @@ react-outline
 
 A React component that shows a live document outline.
 
+The outline always updates itself in sync with the current document. This also works with hot module replacement.
+
 ![Screenshot](react-outline.png)
 
 Legend:
