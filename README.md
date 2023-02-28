@@ -27,8 +27,12 @@ Somewhere in your app, you can use this to show the current page's outline:
 
 ```typescript
 import { Outline } from '@blizzy/react-outline'
+```
 
-<div className="fixed top-5 right-5 z-50 rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
+```html
+<div className="fixed top-5 right-5 z-50
+  rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
+
   <Outline />
 </div>
 ```
