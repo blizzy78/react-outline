@@ -1,0 +1,106 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`elementSection > empty 1`] = `[]`;
+
+exports[`elementSection > explicit > <main><article></article></main> 1`] = `
+[
+  {
+    "ariaLabel": undefined,
+    "ariaLandmark": false,
+    "children": [],
+    "elementTag": "article",
+    "implicit": false,
+    "inMain": true,
+    "label": undefined,
+    "labelElementTag": undefined,
+  },
+]
+`;
+
+exports[`elementSection > heading label > <section><h1>foo</h1><h2>bar</h2></section> 1`] = `
+[
+  {
+    "ariaLabel": undefined,
+    "ariaLandmark": false,
+    "children": [
+      {
+        "ariaLabel": undefined,
+        "ariaLandmark": false,
+        "children": [],
+        "elementTag": "h2",
+        "implicit": true,
+        "inMain": false,
+        "label": "bar",
+        "labelElementTag": "h2",
+      },
+    ],
+    "elementTag": "section",
+    "implicit": false,
+    "inMain": false,
+    "label": "foo",
+    "labelElementTag": "h1",
+  },
+]
+`;
+
+exports[`elementSection > implicit > <main><h1>1</h1><h2>1.1</h2><h1>2</h1></main> 1`] = `
+[
+  {
+    "ariaLabel": undefined,
+    "ariaLandmark": false,
+    "children": [
+      {
+        "ariaLabel": undefined,
+        "ariaLandmark": false,
+        "children": [],
+        "elementTag": "h2",
+        "implicit": true,
+        "inMain": true,
+        "label": "1.1",
+        "labelElementTag": "h2",
+      },
+    ],
+    "elementTag": "h1",
+    "implicit": true,
+    "inMain": true,
+    "label": "1",
+    "labelElementTag": "h1",
+  },
+  {
+    "ariaLabel": undefined,
+    "ariaLandmark": false,
+    "children": [],
+    "elementTag": "h1",
+    "implicit": true,
+    "inMain": true,
+    "label": "2",
+    "labelElementTag": "h1",
+  },
+]
+`;
+
+exports[`elementSection > non-sectioning > <article><main><section></section></main></article> 1`] = `
+[
+  {
+    "ariaLabel": undefined,
+    "ariaLandmark": false,
+    "children": [
+      {
+        "ariaLabel": undefined,
+        "ariaLandmark": false,
+        "children": [],
+        "elementTag": "section",
+        "implicit": false,
+        "inMain": true,
+        "label": undefined,
+        "labelElementTag": undefined,
+      },
+    ],
+    "elementTag": "article",
+    "implicit": false,
+    "inMain": false,
+    "label": undefined,
+    "labelElementTag": undefined,
+  },
+]
+`;
