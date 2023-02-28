@@ -37,6 +37,8 @@ import { Outline } from '@blizzy/react-outline'
 </div>
 ```
 
+### Styling
+
 react-outline uses [Tailwind CSS] for styling. If you use Tailwind CSS as well, you may want to add
 react-outline's source to your `content` configuration:
 
