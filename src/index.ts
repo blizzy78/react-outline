@@ -1,1 +1,3 @@
-export * from './Outline'
+'use client'
+
+export { Outline } from './Outline'

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 
 export interface SimpleMutationRecord {
@@ -6,16 +8,16 @@ export interface SimpleMutationRecord {
 }
 
 export const useOnMutation = (
-  rootElement: Element,
   filter: (record: SimpleMutationRecord) => boolean,
-  callback: () => void
+  callback: () => void,
+  rootElement?: Element,
 ) => {
   useEffect(() => {
     callback()
 
     const observer = new MutationObserver(mutationCallback(filter, callback))
 
-    observer.observe(rootElement, {
+    observer.observe(rootElement ?? document.body, {
       childList: true,
       subtree: true,
       attributes: true,

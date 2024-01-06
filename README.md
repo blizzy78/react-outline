@@ -29,8 +29,10 @@ Somewhere in your app, you can use this to show the current page's outline:
 import { Outline } from '@blizzy/react-outline'
 ```
 
+Insert the following at the bottom of your HTML:
+
 ```html
-<div className="fixed top-5 right-5 z-50
+<div className="fixed right-5 top-5 max-h-[50%] max-w-[50%] overflow-y-scroll
   rounded-lg bg-white p-5 shadow-md dark:bg-slate-700">
 
   <Outline />

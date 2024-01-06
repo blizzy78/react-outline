@@ -2,7 +2,7 @@
 
 import { renderHook } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { mutationCallback, SimpleMutationRecord, useOnMutation } from './useOnMutation'
+import { SimpleMutationRecord, mutationCallback, useOnMutation } from './useOnMutation'
 
 describe('useOnMutation', () => {
   it('calls callback on initial mount', () => {
@@ -21,10 +21,10 @@ describe('useOnMutation', () => {
     }
 
     const { rerender } = renderHook<void, typeof props>(
-      (props) => useOnMutation(props.rootElement, props.filter, props.callback),
+      (props) => useOnMutation(props.filter, props.callback, props.rootElement),
       {
         initialProps: props,
-      }
+      },
     )
 
     rerender(props)
@@ -44,7 +44,7 @@ describe('mutationCallback', () => {
       },
       () => {
         /**/
-      }
+      },
     )
 
     mutCallback([{ type: 'childList', target: document }])
@@ -57,7 +57,7 @@ describe('mutationCallback', () => {
 
     const mutCallback = mutationCallback(
       () => true,
-      () => (callbackCalled = true)
+      () => (callbackCalled = true),
     )
 
     mutCallback([{ type: 'childList', target: document }])

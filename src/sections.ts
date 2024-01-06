@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useState } from 'react'
 import { SimpleMutationRecord, useOnMutation } from './useOnMutation'
 
@@ -12,12 +14,12 @@ export type Section = {
   children: readonly Section[]
 }
 
-export const useSections = (rootElement: Element) => {
+export const useSections = (rootElement?: Element) => {
   const [sections, setSections] = useState<readonly Section[]>([])
 
   const filter = useCallback(mutationOutsideOutline, [])
-  const onMutate = useCallback(() => setSections(elementSection(rootElement).children), [rootElement])
-  useOnMutation(rootElement, filter, onMutate)
+  const onMutate = useCallback(() => setSections(elementSection(rootElement ?? document.body).children), [rootElement])
+  useOnMutation(filter, onMutate, rootElement)
 
   return sections
 }

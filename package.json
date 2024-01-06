@@ -24,24 +24,24 @@
     "build": "tsup src/index.ts --format cjs,esm --dts"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "clsx": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^14.0.0",
-    "@types/react": ">=16.0.0",
-    "@types/react-dom": ">=16.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "eslint": "^8.35.0",
+    "@testing-library/react": "^14.1.2",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "jsdom": "^21.1.0",
-    "prettier": "^2.8.4",
-    "prettier-plugin-tailwindcss": "^0.2.3",
-    "tsup": "^6.6.3",
-    "typescript": "^4.9.5",
-    "vitest": "^0.29.1"
+    "jsdom": "^23.1.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.3"
   }
 }

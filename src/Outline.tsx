@@ -1,9 +1,11 @@
+'use client'
+
 import clsx from 'clsx'
 import React from 'react'
 import { Section, useSections } from './sections'
 
 export const Outline = ({ rootElement }: { rootElement?: Element }) => {
-  const sections = useSections(rootElement ?? document.body)
+  const sections = useSections(rootElement)
 
   return (
     <div className="flex flex-col gap-3 bg-white text-gray-800 dark:bg-slate-700 dark:text-gray-200" data-outline>
@@ -15,7 +17,7 @@ export const Outline = ({ rootElement }: { rootElement?: Element }) => {
 }
 
 const SectionTable = ({ sections }: { sections: readonly Section[] }) => (
-  <div className="grid grid-cols-[repeat(4,_max-content)]">
+  <div className="grid grid-cols-[max-content_max-content_1fr_1fr]">
     <TableHeading>Element</TableHeading>
     <TableHeading className="pl-8">Heading</TableHeading>
     <TableHeading className="pl-8">Label</TableHeading>
@@ -51,8 +53,8 @@ const SectionListEntry = ({ section, level }: { section: Section; level: number 
           <IndentedDiv level={level}>
             <div
               className={clsx(
-                'inline-block rounded-md bg-gray-200 px-2 py-1 font-mono text-sm leading-none text-black dark:bg-slate-500 dark:text-white',
-                section.implicit && 'italic'
+                'inline-block rounded bg-gray-200 px-2 py-1 font-mono text-sm leading-none text-black dark:bg-slate-500 dark:text-white',
+                section.implicit && 'italic',
               )}
             >
               {section.elementTag}
@@ -65,7 +67,7 @@ const SectionListEntry = ({ section, level }: { section: Section; level: number 
         <div className="px-1.5 py-0.5 pl-8">
           {!!section.labelElementTag ? (
             <IndentedDiv level={level}>
-              <div className="inline-block rounded-md bg-gray-200 px-2 py-1 font-mono text-sm leading-none text-black dark:bg-slate-500 dark:text-white">
+              <div className="inline-block rounded bg-gray-200 px-2 py-1 font-mono text-sm leading-none text-black dark:bg-slate-500 dark:text-white">
                 {section.labelElementTag}
               </div>
             </IndentedDiv>
@@ -77,14 +79,23 @@ const SectionListEntry = ({ section, level }: { section: Section; level: number 
 
       <div className={clsx('flex flex-row items-center', section.inMain && 'bg-gray-100 dark:bg-slate-900/30')}>
         <div className="px-1.5 py-0.5 pl-8">
-          {!!section.label ? <IndentedDiv level={level}>{section.label}</IndentedDiv> : <>&nbsp;</>}
+          {!!section.label ? (
+            <IndentedDiv className="line-clamp-1" level={level}>
+              {section.label}
+            </IndentedDiv>
+          ) : (
+            <>&nbsp;</>
+          )}
         </div>
       </div>
 
       <div className={clsx('flex flex-row items-center', section.inMain && 'bg-gray-100 dark:bg-slate-900/30')}>
         <div className="px-1.5 py-0.5 pl-8">
           {!!section.ariaLabel || !!section.label ? (
-            <IndentedDiv level={level} className={clsx(section.ariaLandmark && 'font-semibold underline')}>
+            <IndentedDiv
+              level={level}
+              className={clsx('line-clamp-1', section.ariaLandmark && 'font-semibold underline')}
+            >
               {section.ariaLabel ?? section.label}
             </IndentedDiv>
           ) : (
